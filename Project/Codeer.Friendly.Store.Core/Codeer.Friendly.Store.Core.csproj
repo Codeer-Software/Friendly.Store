@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FCDA292-CFD4-4587-9CA4-D7BB76AB7818}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Codeer.Friendly.Store.Core</RootNamespace>
+    <AssemblyName>Codeer.Friendly.Store.Core</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Codeer.Friendly.Store.Core.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CopyDataProtocol\Message.cs" />
+    <Compile Include="CopyDataProtocol\MethodInvoker.cs" />
+    <Compile Include="CommunicationWindow.cs" />
+    <Compile Include="CommunicationWindowManager.cs" />
+    <Compile Include="ContextOrderProtocolInfo.cs" />
+    <Compile Include="CopyDataProtocol\CopyDataProtocolInfo.cs" />
+    <Compile Include="CopyDataProtocol\CopyDataProtocolTalker.cs" />
+    <Compile Include="CopyDataProtocol\CustomSerializer.cs" />
+    <Compile Include="CopyDataProtocol\ReceiveAfterSend.cs" />
+    <Compile Include="CopyDataProtocol\ReceiveForm.cs" />
+    <Compile Include="Debug.cs" />
+    <Compile Include="DotNetExecutor\DotNetFriendlyControl.cs" />
+    <Compile Include="DotNetExecutor\DotNetFriendlyExecutor.cs" />
+    <Compile Include="DotNetExecutor\IAsyncInvoke.cs" />
+    <Compile Include="DotNetExecutor\TypeFinder.cs" />
+    <Compile Include="DotNetExecutor\UniqueNoManager.cs" />
+    <Compile Include="DotNetExecutor\VarAndType.cs" />
+    <Compile Include="DotNetExecutor\VarPool.cs" />
+    <Compile Include="FriendlyConnectorWindowInApp.cs" />
+    <Compile Include="FriendlyConnectorWindowInAppManager.cs" />
+    <Compile Include="Friendly\FriendlyOperationException.cs" />
+    <Compile Include="Friendly\InformationException.cs" />
+    <Compile Include="Friendly\InternalException.cs" />
+    <Compile Include="Friendly\OperationTypeInfo.cs" />
+    <Compile Include="Friendly\Protocol\ExceptionInfo.cs" />
+    <Compile Include="Friendly\Protocol\ProtocolInfo.cs" />
+    <Compile Include="Friendly\Protocol\ProtocolType.cs" />
+    <Compile Include="Friendly\Protocol\ReturnInfo.cs" />
+    <Compile Include="Friendly\Protocol\VarAddress.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="SystemControlInfo.cs" />
+    <Compile Include="SystemControlType.cs" />
+    <Compile Include="SystemControlWindowInApp.cs" />
+    <Compile Include="SystemStarterInApp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Codeer.Friendly.Store.Core.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
