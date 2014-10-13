@@ -115,4 +115,4 @@ Release/
 TestResults/
 
 *.nupkg
-!Project/AppTest/Codeer.Friendly.Windows/Resources/*
+Codeer.Friendly.Store.Core.dll
