@@ -39,14 +39,19 @@ namespace StoreAppTest
             main.Func();
             main.Func(new Async());
 
+            dynamic button = _app.Type().Windows.UI.Xaml.Controls.Button();
+            button.Content = "新たなボタン";
+            main._grid.Children.Add(button);
+
+
          //   dynamic i = _app.Type().System.Reflection.IntrospectionExtensions.GetTypeInfo(main.GetX());
           //  main.SetInfo(i);
 
 
         //    string s = "Windows.UI.Xaml.Controls.Grid, Windows.UI.Xaml, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime";
-            var s = "Windows.UI.Color, System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089";
-            dynamic d = _app.Type().System.Reflection.Assembly.Load(s);
-            string ss = d.ToString();
+    //        var s = "Windows.UI.Color, System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089";
+   //         dynamic d = _app.Type().System.Reflection.Assembly.Load(s);
+     //       string ss = d.ToString();
             /*
             foreach(dynamic e in main.GetY().GetInterfaces())
             {

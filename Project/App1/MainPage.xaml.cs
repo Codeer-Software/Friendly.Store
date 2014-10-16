@@ -27,15 +27,14 @@ namespace App1
         {
             this.InitializeComponent();
 
-            var i = "内部APIを使ったシステムテスト自動化".Length;
-            int dmy = 0;
-      //      string name = Windows.UI.Colors.Blue.GetType().AssemblyQualifiedName;
-        //    var color = Windows.UI.Colors.Blue;
-       //     var brush = new Windows.UI.Xaml.Media.SolidColorBrush(color);
-       //     _grid.Background = brush;
+       /*
+            string name = Windows.UI.Colors.Blue.GetType().AssemblyQualifiedName;
+            var color = Windows.UI.Colors.Blue;
+            var brush = new Windows.UI.Xaml.Media.SolidColorBrush(color);
+            _grid.Background = brush;
             
 
-            /*
+            
             var text = new TextBlock();
             text.Width = 200;
             text.Height = 200;
@@ -47,21 +46,17 @@ namespace App1
             
 
          //   var method = typeof(ICollection<UIElement>).GetTypeInfo().GetDeclaredMethod("Add");
-
-            /*
+            
             //★もし引っかからなかったときは、これでとる！
             var v = _grid.Children.GetType().GetTypeInfo();
             foreach(var e in v.ImplementedInterfaces)
             {
-                var m = e.GetTypeInfo().GetDeclaredMethod("Add");
+                var ee = e.GetTypeInfo();
+                var m = ee.GetDeclaredMethod("Add");
                 if (m != null)
                 {
                 }
-            }
-
-            string name = _grid.GetType().AssemblyQualifiedName;
-            */
-
+            }*/
         }
 
         Type GetX()

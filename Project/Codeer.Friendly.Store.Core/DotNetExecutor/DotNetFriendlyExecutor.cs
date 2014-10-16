@@ -281,7 +281,7 @@ namespace Codeer.Friendly.DotNetExecutor
                 type = typeFinder.GetType(info.OperationTypeInfo.Target);
                 if (type == null)
                 {
-                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, 
+                    throw new InformationException(string.Format(CultureInfo.CurrentCulture,
                         Resources.UnknownTypeInfoFormat, info.OperationTypeInfo.Target));
                 }
             }
@@ -321,6 +321,16 @@ namespace Codeer.Friendly.DotNetExecutor
                 //プロパティーとメソッド
                 MethodInfo method = FindMethodOrProperty(info.OperationTypeInfo != null, type, bind, operation, argTypes,
                             ref isObjectArrayArg, ref nameMatchCount, ref isAmbiguousArgs);
+                if (method != null)
+                {
+                    return ExecuteMethodOrProperty(async, varManager, info, obj, args, method);
+                }
+            }
+
+            //WinRTから検索
+            {
+                MethodInfo method = FindMethodOrPropertyWinRT(typeFinder, info.OperationTypeInfo != null, findStartType,
+                        operation, argTypes, ref isObjectArrayArg, ref nameMatchCount, ref isAmbiguousArgs);
                 if (method != null)
                 {
                     return ExecuteMethodOrProperty(async, varManager, info, obj, args, method);
@@ -468,11 +478,62 @@ namespace Codeer.Friendly.DotNetExecutor
         static MethodInfo FindMethodOrProperty(bool isUseOperationTypeInfo, Type type, BindingFlags bind,
             string operation, Type[] argTypes, ref bool isObjectArrayArg, ref int nameMatchCount, ref bool isAmbiguousArgs)
         {
-            //プロパティーとメソッド
             MethodInfo[] methods = type.GetMethods(bind);
+            return FindMethodOrPropertyCore(isUseOperationTypeInfo, operation, argTypes, ref isObjectArrayArg, ref nameMatchCount, ref isAmbiguousArgs, methods);
+        }
+
+
+        static MethodInfo FindMethodOrPropertyWinRT(TypeFinder typeFinder, bool isUseOperationTypeInfo, Type type,
+            string operation, Type[] argTypes, ref bool isObjectArrayArg, ref int nameMatchCount, ref bool isAmbiguousArgs)
+        {
+            //@@@これは一回で良い
+            Type rtRef = typeFinder.GetType("System.Reflection.IntrospectionExtensions");
+            MethodInfo getTypeInfo = rtRef.GetMethod("GetTypeInfo", BindingFlags.Static | BindingFlags.Public);
+
+
+            object typeInfo = null;
+            try
+            {
+                typeInfo = getTypeInfo.Invoke(null, new object[] { type });
+                if (typeInfo == null)
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+            MethodInfo method = null;
+            foreach (var e in (IEnumerable)typeInfo.GetType().GetProperty("ImplementedInterfaces").GetGetMethod().Invoke(typeInfo, new object[0]))
+            {
+                //var ee = e.GetTypeInfo();
+                object ee = getTypeInfo.Invoke(null, new object[] { e });
+
+                // var m = ee.GetDeclaredMethod(operation);
+                method = (MethodInfo)ee.GetType().GetMethod("GetDeclaredMethod").Invoke(ee, new object[] { operation });
+                if (method != null)
+                {
+                    break;
+                }
+            }
+            if (method == null)
+            {
+                return null;
+            }
+            MethodInfo[] methods = new MethodInfo[] { method };
+            return FindMethodOrPropertyCore(isUseOperationTypeInfo, operation, argTypes, ref isObjectArrayArg, ref nameMatchCount, ref isAmbiguousArgs, methods);
+        }
+
+        static MethodInfo FindMethodOrPropertyCore(bool isUseOperationTypeInfo, string operation, Type[] argTypes, ref bool isObjectArrayArg, ref int nameMatchCount, ref bool isAmbiguousArgs, MethodInfo[] methods)
+        {
+
             List<MethodInfo> methodList = new List<MethodInfo>();
             for (int i = 0; i < methods.Length; i++)
             {
+                //@@@なんかここにならではの処理をいれた記憶が
+
                 //プロパティー指定の場合、メソッドの中からsetter,getterを探して使用する
                 if ((methods[i].Name != operation) &&
                     (methods[i].Name != "set_" + operation) &&
