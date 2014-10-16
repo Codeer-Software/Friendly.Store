@@ -26,54 +26,11 @@ namespace App1
         public MainPage()
         {
             this.InitializeComponent();
-
-       /*
-            string name = Windows.UI.Colors.Blue.GetType().AssemblyQualifiedName;
-            var color = Windows.UI.Colors.Blue;
-            var brush = new Windows.UI.Xaml.Media.SolidColorBrush(color);
-            _grid.Background = brush;
-            
-
-            
-            var text = new TextBlock();
-            text.Width = 200;
-            text.Height = 200;
-            text.Text = "abc";
-            var collection = _grid.Children;
-            var typeInfo = System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(ICollection<UIElement>));
-            var method = typeInfo.GetDeclaredMethod("Add");
-            method.Invoke(collection, new object[] { text });
-            
-
-         //   var method = typeof(ICollection<UIElement>).GetTypeInfo().GetDeclaredMethod("Add");
-            
-            //★もし引っかからなかったときは、これでとる！
-            var v = _grid.Children.GetType().GetTypeInfo();
-            foreach(var e in v.ImplementedInterfaces)
-            {
-                var ee = e.GetTypeInfo();
-                var m = ee.GetDeclaredMethod("Add");
-                if (m != null)
-                {
-                }
-            }*/
         }
 
-        Type GetX()
+        string Func(int value)
         {
-            return typeof(ICollection<UIElement>);
-        }
-        Type GetY()
-        {
-            return _grid.Children.GetType();
-        }
-        void SetInfo(TypeInfo i)
-        {
-        }
-
-        void Func()
-        {
-
+            return value.ToString();
         }
     }
 }
