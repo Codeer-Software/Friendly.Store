@@ -99,6 +99,7 @@ namespace Codeer.Friendly.Store.Core
             {
                 if (protocolInfo.ProtocolType == ProtocolType.AsyncOperation)
                 {
+                    //@@@プロパティーでsetterがput_のメソッドになっている場合がある対策
                     ProtocolInfo protocolInfo2 =
                         new ProtocolInfo(protocolInfo.ProtocolType,
                             protocolInfo.OperationTypeInfo,

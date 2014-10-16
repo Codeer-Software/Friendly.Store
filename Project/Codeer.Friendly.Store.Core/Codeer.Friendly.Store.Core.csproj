@@ -51,7 +51,9 @@
     <Compile Include="DotNetExecutor\DotNetFriendlyControl.cs" />
     <Compile Include="DotNetExecutor\DotNetFriendlyExecutor.cs" />
     <Compile Include="DotNetExecutor\IAsyncInvoke.cs" />
+    <Compile Include="DotNetExecutor\IntrospectionWrap.cs" />
     <Compile Include="DotNetExecutor\TypeFinder.cs" />
+    <Compile Include="DotNetExecutor\TypeInfoWrap.cs" />
     <Compile Include="DotNetExecutor\UniqueNoManager.cs" />
     <Compile Include="DotNetExecutor\VarAndType.cs" />
     <Compile Include="DotNetExecutor\VarPool.cs" />

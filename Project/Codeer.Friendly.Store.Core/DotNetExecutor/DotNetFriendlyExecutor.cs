@@ -482,59 +482,62 @@ namespace Codeer.Friendly.DotNetExecutor
             return FindMethodOrPropertyCore(isUseOperationTypeInfo, operation, argTypes, ref isObjectArrayArg, ref nameMatchCount, ref isAmbiguousArgs, methods);
         }
 
-
+        /// <summary>
+        /// メソッドorプロパティー検索。
+        /// </summary>
+        /// <param name="typeFinder">タイプ検索。</param>
+        /// <param name="isUseOperationTypeInfo">OperationTypeInfoを使っているか。</param>
+        /// <param name="type">操作実行対象タイプ。</param>
+        /// <param name="operation">操作名称。</param>
+        /// <param name="argTypes">引数のタイプ。</param>
+        /// <param name="isObjectArrayArg">操作の引数がobject[]型であったか。</param>
+        /// <param name="nameMatchCount">名前がマッチした数。</param>
+        /// <param name="isAmbiguousArgs">あいまいな引数であるか。</param>
+        /// <returns>メソッド情報。</returns>
         static MethodInfo FindMethodOrPropertyWinRT(TypeFinder typeFinder, bool isUseOperationTypeInfo, Type type,
             string operation, Type[] argTypes, ref bool isObjectArrayArg, ref int nameMatchCount, ref bool isAmbiguousArgs)
         {
-            //@@@これは一回で良い
-            Type rtRef = typeFinder.GetType("System.Reflection.IntrospectionExtensions");
-            MethodInfo getTypeInfo = rtRef.GetMethod("GetTypeInfo", BindingFlags.Static | BindingFlags.Public);
 
-
-            object typeInfo = null;
-            try
-            {
-                typeInfo = getTypeInfo.Invoke(null, new object[] { type });
-                if (typeInfo == null)
-                {
-                    return null;
-                }
-            }
-            catch
+            IntrospectionWrap rt = new IntrospectionWrap(typeFinder);
+            TypeInfoWrap typeInfo = rt.GetTypeInfo(type);
+            if (typeInfo == null)
             {
                 return null;
             }
 
-            MethodInfo method = null;
-            foreach (var e in (IEnumerable)typeInfo.GetType().GetProperty("ImplementedInterfaces").GetGetMethod().Invoke(typeInfo, new object[0]))
+            MethodInfo[] methods = new MethodInfo[0];
+            foreach (var interfaceType in typeInfo.ImplementedInterfaces)
             {
-                //var ee = e.GetTypeInfo();
-                object ee = getTypeInfo.Invoke(null, new object[] { e });
-
-                // var m = ee.GetDeclaredMethod(operation);
-                method = (MethodInfo)ee.GetType().GetMethod("GetDeclaredMethod").Invoke(ee, new object[] { operation });
-                if (method != null)
+                methods = rt.GetTypeInfo(interfaceType).GetDeclaredMethods(operation);
+                if (0 < methods.Length)
                 {
                     break;
                 }
             }
-            if (method == null)
-            {
-                return null;
-            }
-            MethodInfo[] methods = new MethodInfo[] { method };
             return FindMethodOrPropertyCore(isUseOperationTypeInfo, operation, argTypes, ref isObjectArrayArg, ref nameMatchCount, ref isAmbiguousArgs, methods);
         }
 
+        /// <summary>
+        /// メソッドorプロパティー検索。
+        /// </summary>
+        /// <param name="isUseOperationTypeInfo">OperationTypeInfoを使っているか。</param>
+        /// <param name="type">操作実行対象タイプ。</param>
+        /// <param name="operation">操作名称。</param>
+        /// <param name="argTypes">引数のタイプ。</param>
+        /// <param name="isObjectArrayArg">操作の引数がobject[]型であったか。</param>
+        /// <param name="nameMatchCount">名前がマッチした数。</param>
+        /// <param name="isAmbiguousArgs">あいまいな引数であるか。</param>
+        /// <param name="methods">メソッド情報候補</param>
+        /// <returns>メソッド情報。</returns>
         static MethodInfo FindMethodOrPropertyCore(bool isUseOperationTypeInfo, string operation, Type[] argTypes, ref bool isObjectArrayArg, ref int nameMatchCount, ref bool isAmbiguousArgs, MethodInfo[] methods)
         {
 
             List<MethodInfo> methodList = new List<MethodInfo>();
             for (int i = 0; i < methods.Length; i++)
             {
-                //@@@なんかここにならではの処理をいれた記憶が
-
+                //プロパティーでputになっている場合があるが、ここで判定に加えると間違ってヒットする可能性がある
                 //プロパティー指定の場合、メソッドの中からsetter,getterを探して使用する
+                //@@@ていうか、メソッド用の判定とプロパティー用の判定を分けた方がいいかな。
                 if ((methods[i].Name != operation) &&
                     (methods[i].Name != "set_" + operation) &&
                     (methods[i].Name != "get_" + operation))
