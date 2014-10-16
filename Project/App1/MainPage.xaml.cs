@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -25,11 +26,59 @@ namespace App1
         public MainPage()
         {
             this.InitializeComponent();
+
+            var i = "内部APIを使ったシステムテスト自動化".Length;
+            int dmy = 0;
+      //      string name = Windows.UI.Colors.Blue.GetType().AssemblyQualifiedName;
+        //    var color = Windows.UI.Colors.Blue;
+       //     var brush = new Windows.UI.Xaml.Media.SolidColorBrush(color);
+       //     _grid.Background = brush;
+            
+
+            /*
+            var text = new TextBlock();
+            text.Width = 200;
+            text.Height = 200;
+            text.Text = "abc";
+            var collection = _grid.Children;
+            var typeInfo = System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(ICollection<UIElement>));
+            var method = typeInfo.GetDeclaredMethod("Add");
+            method.Invoke(collection, new object[] { text });
+            
+
+         //   var method = typeof(ICollection<UIElement>).GetTypeInfo().GetDeclaredMethod("Add");
+
+            /*
+            //★もし引っかからなかったときは、これでとる！
+            var v = _grid.Children.GetType().GetTypeInfo();
+            foreach(var e in v.ImplementedInterfaces)
+            {
+                var m = e.GetTypeInfo().GetDeclaredMethod("Add");
+                if (m != null)
+                {
+                }
+            }
+
+            string name = _grid.GetType().AssemblyQualifiedName;
+            */
+
+        }
+
+        Type GetX()
+        {
+            return typeof(ICollection<UIElement>);
+        }
+        Type GetY()
+        {
+            return _grid.Children.GetType();
+        }
+        void SetInfo(TypeInfo i)
+        {
         }
 
         void Func()
         {
-            int dmy = 0;
+
         }
     }
 }
