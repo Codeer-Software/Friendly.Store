@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -26,6 +27,9 @@ namespace App1
         public MainPage()
         {
             this.InitializeComponent();
+            var color = Windows.UI.Colors.Green;
+            var brush = new Windows.UI.Xaml.Media.SolidColorBrush(color);
+            _grid.Background = brush;
         }
 
         string Func(int value)

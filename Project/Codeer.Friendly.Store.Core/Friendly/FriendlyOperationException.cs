@@ -4,7 +4,6 @@ using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using Codeer.Friendly.Store.Core.Properties;
 
 namespace Codeer.Friendly
 {
@@ -149,7 +148,7 @@ namespace Codeer.Friendly
             {
                 return info.Message;
             }
-            return string.Format(CultureInfo.CurrentCulture, Resources.ExceptionInfoFormat,
+            return string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ExceptionInfoFormat,
 				info.Message,
 				info.ExceptionType,
 				info.Source,

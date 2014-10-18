@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Diagnostics;
-using Codeer.Friendly.Store.Core.Properties;
 using Codeer.Friendly;
 using System.Globalization;
 using System.Runtime.InteropServices;

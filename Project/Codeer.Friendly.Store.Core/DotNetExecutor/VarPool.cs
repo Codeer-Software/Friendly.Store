@@ -2,7 +2,6 @@
 using Codeer.Friendly.Inside.Protocol;
 using Codeer.Friendly.Inside;
 using System;
-using Codeer.Friendly.Store.Core.Properties;
 
 namespace Codeer.Friendly.DotNetExecutor
 {
@@ -77,7 +76,7 @@ namespace Codeer.Friendly.DotNetExecutor
 				int no;
 				if (!_varAddressManager.CreateNo(out no))
 				{
-                    throw new InformationException(Resources.OutOfMemory);
+                    throw new InformationException(ResourcesLocal.Instance.OutOfMemory);
 				}
 				_handleAndObject.Add(no, new VarAndType(obj));
 				return new VarAddress(no);

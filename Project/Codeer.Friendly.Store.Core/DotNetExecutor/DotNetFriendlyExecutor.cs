@@ -8,7 +8,6 @@ using Codeer.Friendly.Inside.Protocol;
 using Codeer.Friendly.Inside;
 using System.Globalization;
 using System.Text;
-using Codeer.Friendly.Store.Core.Properties;
 
 namespace Codeer.Friendly.DotNetExecutor
 {
@@ -97,7 +96,7 @@ namespace Codeer.Friendly.DotNetExecutor
 			Type type = typeFinder.GetType(info.TypeFullName);
 			if (type == null)
 			{
-                throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.UnknownTypeInfoFormat, info.TypeFullName));
+                throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.UnknownTypeInfoFormat, info.TypeFullName));
 			}
 
 			//引数の解決
@@ -143,19 +142,19 @@ namespace Codeer.Friendly.DotNetExecutor
             {
                 if (isObjectArrayArg)
                 {
-                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorNotFoundConstractorFormatForObjectArray,
+                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorNotFoundConstractorFormatForObjectArray,
                         type.Name, MakeErrorInvokeArgInfo(argTypes)));
                 }
                 else
                 {
-                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorNotFoundConstractorFormat,
+                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorNotFoundConstractorFormat,
                         type.Name, MakeErrorInvokeArgInfo(argTypes)));
                 }
             }
 			if (constructorList.Count != 1)
 			{
                 //オーバーロード解決に失敗
-                throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorManyFoundConstractorFormat,
+                throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorManyFoundConstractorFormat,
                         type.Name, MakeErrorInvokeArgInfo(argTypes)));
 			}
 
@@ -235,7 +234,7 @@ namespace Codeer.Friendly.DotNetExecutor
 			IEnumerable enumerable = obj as IEnumerable;
 			if (enumerable == null)
 			{
-                throw new InformationException(Resources.HasNotEnumerable);
+                throw new InformationException(ResourcesLocal.Instance.HasNotEnumerable);
 			}
 
 			//要素をすべて変数登録
@@ -282,7 +281,7 @@ namespace Codeer.Friendly.DotNetExecutor
                 if (type == null)
                 {
                     throw new InformationException(string.Format(CultureInfo.CurrentCulture,
-                        Resources.UnknownTypeInfoFormat, info.OperationTypeInfo.Target));
+                        ResourcesLocal.Instance.UnknownTypeInfoFormat, info.OperationTypeInfo.Target));
                 }
             }
 
@@ -650,24 +649,24 @@ namespace Codeer.Friendly.DotNetExecutor
         {
             if (isAmbiguousArgs)
             {
-                throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorManyFoundInvokeFormat,
+                throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorManyFoundInvokeFormat,
                     findStartType.Name, info.Operation, MakeErrorInvokeArgInfo(argTypes)));
             }
             else if (nameMatchCount == 0)
             {
-                return new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorNotFoundInvokeFormat,
+                return new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorNotFoundInvokeFormat,
                     findStartType.Name, info.Operation, MakeErrorInvokeArgInfo(argTypes)));
             }
             else
             {
                 if (isObjectArrayArg)
                 {
-                    return new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorArgumentInvokeFormatForObjectArray,
+                    return new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorArgumentInvokeFormatForObjectArray,
                         findStartType.Name, info.Operation, MakeErrorInvokeArgInfo(argTypes)));
                 }
                 else
                 {
-                    return new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorArgumentInvokeFormat,
+                    return new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorArgumentInvokeFormat,
                         findStartType.Name, info.Operation, MakeErrorInvokeArgInfo(argTypes)));
                 }
             }
@@ -764,7 +763,7 @@ namespace Codeer.Friendly.DotNetExecutor
 				type = typeFinder.GetType(info.TypeFullName);
 				if (type == null)
 				{
-                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.UnknownTypeInfoFormat, info.TypeFullName));
+                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.UnknownTypeInfoFormat, info.TypeFullName));
 				}
 				bind |= BindingFlags.Static;
 			}
@@ -775,7 +774,7 @@ namespace Codeer.Friendly.DotNetExecutor
                 targetObj = varAndType.Core;
                 if (targetObj == null)
                 {
-                    throw new InformationException(Resources.NullObjectOperation);
+                    throw new InformationException(ResourcesLocal.Instance.NullObjectOperation);
                 }
                 type = varAndType.Type;
 				bind |= BindingFlags.Instance;
@@ -874,7 +873,7 @@ namespace Codeer.Friendly.DotNetExecutor
                     Type type = typeFinder.GetType(operationTypeInfo.Arguments[i]);
                     if (type == null)
                     {
-                        throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.UnknownTypeInfoFormat, operationTypeInfo.Arguments[i]));
+                        throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.UnknownTypeInfoFormat, operationTypeInfo.Arguments[i]));
                     }
                     argTypes.Add(type);
                 }
@@ -884,13 +883,13 @@ namespace Codeer.Friendly.DotNetExecutor
                     operationTypeInfo.Arguments[0] == typeof(object[]).ToString() &&
                     argTypesOri.Length != 1)
                 {
-                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorOperationTypeArgInfoForObjectArrayFormat,
+                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorOperationTypeArgInfoForObjectArrayFormat,
                         MakeErrorInvokeArgInfo(argTypes.ToArray()), MakeErrorInvokeArgInfo(argTypesOri)));
                 }
 
                 if (argTypesOri.Length != operationTypeInfo.Arguments.Length)
                 {
-                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, Resources.ErrorOperationTypeArgInfoFormat,
+                    throw new InformationException(string.Format(CultureInfo.CurrentCulture, ResourcesLocal.Instance.ErrorOperationTypeArgInfoFormat,
                         MakeErrorInvokeArgInfo(argTypes.ToArray()), MakeErrorInvokeArgInfo(argTypesOri)));
                 }
             }

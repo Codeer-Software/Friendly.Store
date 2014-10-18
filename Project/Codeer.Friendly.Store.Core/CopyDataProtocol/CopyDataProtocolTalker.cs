@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using Codeer.Friendly;
-using Codeer.Friendly.Store.Core.Properties;
 using Codeer.Friendly.Inside.Protocol;
 using Codeer.Friendly.Inside;
 using Codeer.Friendly.Store.Core;
@@ -40,13 +39,13 @@ namespace Codeer.Friendly.Store.Core.CopyDataProtocol
             int communicationNo = 0;
             if (!recieveWindow.UniqueNoManager.CreateNo(out communicationNo))
             {
-                throw new InformationException(Resources.OutOfCommunicationNo);
+                throw new InformationException(ResourcesLocal.Instance.OutOfCommunicationNo);
             }
 
             //使用可能なスレッドであるかチェック
             if (!recieveWindow.CanUseThread)
             {
-                throw new FriendlyOperationException(Resources.ErrorInvalidThreadCall);
+                throw new FriendlyOperationException(ResourcesLocal.Instance.ErrorInvalidThreadCall);
             }
 
             //送受信
@@ -70,14 +69,14 @@ namespace Codeer.Friendly.Store.Core.CopyDataProtocol
 				IntPtr sendRet = NativeMethods.SendMessage(targetWindowHandle, NativeMethods.WM_COPYDATA, new IntPtr(communicationNo), ref copyData);
 				if (sendRet != ReceiveForm.SendCopyDataSuccess)
 				{
-					throw new FriendlyOperationException(Resources.ErrorAppCommunication);
+					throw new FriendlyOperationException(ResourcesLocal.Instance.ErrorAppCommunication);
 				}
 
 				//受信データ取得
                 object receiveData;
                 if (!recieveWindow.GetReceiveData(communicationNo, out receiveData))
                 {
-                    throw new FriendlyOperationException(Resources.ErrorAppCommunication);
+                    throw new FriendlyOperationException(ResourcesLocal.Instance.ErrorAppCommunication);
                 }
                 return receiveData;
 			}

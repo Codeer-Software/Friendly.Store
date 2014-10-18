@@ -4,7 +4,6 @@ using Codeer.Friendly;
 using Codeer.Friendly.Inside.Protocol;
 using Codeer.Friendly.DotNetExecutor;
 using Codeer.Friendly.Store.Core.CopyDataProtocol;
-using Codeer.Friendly.Store.Core.Properties;
 using System.Diagnostics.CodeAnalysis;
 using Codeer.Friendly.Core.Inside;
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Codeer.Friendly;
-using Codeer.Friendly.Store.Core.Properties;
 using Codeer.Friendly.DotNetExecutor;
 
 namespace Codeer.Friendly.Store.Core.CopyDataProtocol
