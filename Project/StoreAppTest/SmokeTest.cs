@@ -31,8 +31,6 @@ namespace StoreAppTest
         [TestMethod]
         public void Test()
         {
-            //@@@★Resourcesが使えない→力技で対応  ResouresEx!
-
             //@@@インストーラとNugetリリース
 
             //①メイン画面取得
