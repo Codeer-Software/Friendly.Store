@@ -10,8 +10,9 @@ You must learn Friendly first.
 
 http://www.english.codeer.co.jp/test-automation/friendly-fundamental  
 
-```cs  
-//sample  
+==============
+Sample.
+```cs   
 //attach.
 var app = new StoreAppFriend(Process.GetProcessesByName("App1")[0]);
 
