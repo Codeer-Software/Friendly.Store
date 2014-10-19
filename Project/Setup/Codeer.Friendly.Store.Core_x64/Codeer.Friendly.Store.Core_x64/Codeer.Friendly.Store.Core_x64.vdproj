@@ -40,13 +40,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4094508AA69B4CA4BA0271F62989E204"
+        "OwnerKey" = "8:_5D721F809B3D4D16B1FA8DB8F13A8524"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5D721F809B3D4D16B1FA8DB8F13A8524"
+        "OwnerKey" = "8:_4094508AA69B4CA4BA0271F62989E204"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -67,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -83,6 +91,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -271,7 +287,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Codeer.Friendly.Store.Core_x64"
+        "ProductName" = "8:Codeer.Friendly.Store.Core_x64_0.1.0"
         "ProductCode" = "8:{A5090C96-B9A8-4745-9D97-B22182B0CF98}"
         "PackageCode" = "8:{32073F87-2107-4457-A43F-FA28FE111C25}"
         "UpgradeCode" = "8:{5A826631-10C6-45C0-BB6A-4DD90641D770}"
@@ -284,7 +300,7 @@
         "Manufacturer" = "8:Codeer Ltd."
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Codeer.Friendly.Store.Core_x64"
+        "Title" = "8:Codeer.Friendly.Store.Core_x64_0.1.0"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Codeer Ltd."
         "Keywords" = "8:"

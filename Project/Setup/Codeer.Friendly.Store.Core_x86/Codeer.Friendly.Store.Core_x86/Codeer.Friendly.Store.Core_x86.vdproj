@@ -55,6 +55,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -71,6 +79,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -217,7 +233,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Codeer.Friendly.Store.Core_x86"
+        "ProductName" = "8:Codeer.Friendly.Store.Core_x86_0.1.0"
         "ProductCode" = "8:{70806808-CB32-4EA5-AFE0-409AF2CB3FA8}"
         "PackageCode" = "8:{19DF06A8-2EEA-4C0C-AB92-0968A6F751A7}"
         "UpgradeCode" = "8:{2F4FE36C-B8FE-47E7-8616-3B8E8778C1D5}"
@@ -230,7 +246,7 @@
         "Manufacturer" = "8:Codeer Ltd."
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Codeer.Friendly.Store.Core_x86"
+        "Title" = "8:Codeer.Friendly.Store.Core_x86_0.1.0"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Codeer Ltd."
         "Keywords" = "8:"
