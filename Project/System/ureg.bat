@@ -1,0 +1,1 @@
+gacutil.exe -u Codeer.Friendly.Store.Core

@@ -31,7 +31,6 @@ using System.Runtime.InteropServices;
 //
 // すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
 // 既定値にすることができます:
-[assembly: AssemblyVersion("1.7.0.0")]
-[assembly: AssemblyFileVersion("1.7.0.0")]
-[assembly: Codeer.Friendly.Inside.FriendlyInfoAttribute("invisible")]
+[assembly: AssemblyVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion("0.1.0.0")]
 [assembly: System.CLSCompliant(true)]

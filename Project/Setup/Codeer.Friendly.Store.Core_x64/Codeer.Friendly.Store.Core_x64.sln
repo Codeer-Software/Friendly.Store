@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Codeer.Friendly.Store.Core_x64", "Codeer.Friendly.Store.Core_x64\Codeer.Friendly.Store.Core_x64.vdproj", "{9333FB26-DA76-4432-A8E0-83AB915BC402}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9333FB26-DA76-4432-A8E0-83AB915BC402}.Debug|Default.ActiveCfg = Debug
+		{9333FB26-DA76-4432-A8E0-83AB915BC402}.Debug|Default.Build.0 = Debug
+		{9333FB26-DA76-4432-A8E0-83AB915BC402}.Release|Default.ActiveCfg = Release
+		{9333FB26-DA76-4432-A8E0-83AB915BC402}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
