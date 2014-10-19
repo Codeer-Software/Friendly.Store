@@ -11,10 +11,18 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Codeer.Friendly.Store
 {
-	/// <summary>
-	/// ストアアプリケーションを操作するためのクラスです。
+#if ENG
+    /// <summary>
+    /// Class that allows manipulating Store applications.
+    /// Inherits from AppFriend.
+    /// Can fail to connect depending on the target application's permissions.
+    /// </summary>
+#else
+    /// <summary>
+    /// ストアアプリケーションを操作するためのクラスです。
     /// AppFriendを継承しています。
-	/// </summary>
+    /// </summary>
+#endif
     public class StoreAppFriend : AppFriend, IDisposable
 	{
         int _processId;
@@ -22,14 +30,26 @@ namespace Codeer.Friendly.Store
         ReceiveAfterSend _receiveWindow;
         FriendlyConnectorCore _currentConnector;
 
-		/// <summary>
-		/// 接続者。
-		/// </summary>
+#if ENG
+        /// <summary>
+        /// Connector.
+        /// </summary>
+#else
+        /// <summary>
+        /// 接続者。
+        /// </summary>
+#endif
         protected override IFriendlyConnector FriendlyConnector { get { return new FriendlyConnectorWrap(this); } }
 
-		/// <summary>
+#if ENG
+        /// <summary>
+        /// Returns the ProcessId of the connected process.
+        /// </summary>
+#else
+        /// <summary>
         /// 操作対象アプリケーションのプロセスIDを取得できます。
-		/// </summary>
+        /// </summary>
+#endif
 		public int ProcessId { get { return _processId; } }
 
         /// <summary>
@@ -42,12 +62,21 @@ namespace Codeer.Friendly.Store
         /// </summary>
         internal ReceiveAfterSend ReceiveWindow { get { return _receiveWindow; } }
 
-		/// <summary>
-		/// コンストラクタです。
-		/// 指定のプロセスに接続します。
+#if ENG
+        /// <summary>
+        /// Constructor.
+        /// Connects to the indicated process.
+        /// Operations are carried out in the thread of the window that is the main window at connection time. 
+        /// </summary>
+        /// <param name="process">Target application process.</param>
+#else
+        /// <summary>
+        /// コンストラクタです。
+        /// 指定のプロセスに接続します。
         /// この指定の場合、接続時のメインウィンドウのスレッドで処理が実行されます。
         /// </summary>
         /// <param name="process">接続対象プロセス。</param>
+#endif
 		public StoreAppFriend(Process process)
 		{
             //@@@一旦CLRのバージョンは4で固定
@@ -98,21 +127,38 @@ namespace Codeer.Friendly.Store
 			Dispose(false);
 		}
 
-		/// <summary>
-		/// 破棄します。
-		/// このメソッドが呼び出されるとアプリケーションとの通信が切断され、管理していた変数が解放されます。
+#if ENG
+        /// <summary>
+        /// Disposes this object.
+        /// When this method is called, communication with the target application
+        /// is terminated and managed variables are be released.
+        /// However, variables are only released from the managed domain and memory
+        /// release is left to garbage collection.
+        /// </summary>
+#else
+        /// <summary>
+        /// 破棄します。
+        /// このメソッドが呼び出されるとアプリケーションとの通信が切断され、管理していた変数が解放されます。
         /// ただし、管理領域から解放されるだけで、メモリの解放はガベージコレクションに委ねられます。
-		/// </summary>
+        /// </summary>
+#endif
 		public void Dispose()
 		{
 			Dispose(true);
 			GC.SuppressFinalize(this);
 		}
 
-		/// <summary>
-		/// 破棄。
-		/// </summary>
-		/// <param name="disposing">破棄フラグ。</param>
+#if ENG
+        /// <summary>
+        /// Dispose.
+        /// </summary>
+        /// <param name="disposing">flag.</param>
+#else
+        /// <summary>
+        /// 破棄。
+        /// </summary>
+        /// <param name="disposing">破棄フラグ。</param>
+#endif
 		protected virtual void Dispose(bool disposing)
 		{
             if (disposing && _receiveWindow != null)

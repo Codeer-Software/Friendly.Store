@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Codeer.Friendly.Store</id>
+    <version>0.1.0</version>
+    <title>Friendly.Store</title>
+    <authors>Codeer</authors>
+    <owners>Codeer</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>https://github.com/Codeer-Software/Friendly.Store</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Friendly for Store apps. You have to install Codeer.Friendly.Store.Core before use. </description>
+    <tags>Friendly Testing Windows Store Automation</tags>
+    <dependencies>
+      <dependency id="Codeer.Friendly" version="2.4.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\ReleaseBinary\Codeer.Friendly.Store.dll" target="lib\net20" />
+    <file src="..\ReleaseBinary\Codeer.Friendly.Store.xml" target="lib\net20" />
+    <file src="..\ReleaseBinary\ja\Codeer.Friendly.Store.xml" target="lib\net20\ja" />
+    <file src="..\ReleaseBinary\ja\Codeer.Friendly.Store.resources.dll" target="lib\net20\ja" />
+  </files>
+</package>
