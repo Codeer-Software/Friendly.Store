@@ -31,8 +31,6 @@ namespace StoreAppTest
         [TestMethod]
         public void Test()
         {
-            //@@@インストーラとNugetリリース
-
             //①メイン画面取得
             dynamic current = _app.Type().Windows.UI.Xaml.Window.Current;
             dynamic main = current.Content.Content;
