@@ -46,3 +46,5 @@ Abstract [button.Content = "NewButton";]
 *Why use PostMessage?									
 ・RPC_E_CANTCALLOUT_ININPUTSYNCCALL.									
 ・And SendMessage is powerfull dispatch.	
+
+*For desktop(Friendly.Windows) is another sequence.
