@@ -29,4 +29,6 @@ main._grid.Children.Add(button);
 ```
 
 ==============
-![new StoreAppFriend](ReadMeImages/Attach.png)
+Abstract button.Content = "NewButton";
+![new StoreAppFriend](ReadMeImages/Execute.png)
+
