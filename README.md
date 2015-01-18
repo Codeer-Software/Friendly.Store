@@ -17,9 +17,10 @@ https://www.nuget.org/packages/Codeer.Friendly.Store/
 
 ==============
 
-You must learn Friendly first.  (No need Installer. NuGet Only.)
+This library is a layer on top of Friendly, so you must learn that first. But it is very easy to learn.
 
 http://www.english.codeer.co.jp/test-automation
+(No need Installer. NuGet Only.)
 
 ==============
 Sample.
