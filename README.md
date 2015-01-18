@@ -43,3 +43,6 @@ Abstract [new StoreAppFriend(process);]
 Abstract [button.Content = "NewButton";]
 ![Execute](ReadMeImages/Execute_2.png)
 
+*Why use PostMessage?									
+・RPC_E_CANTCALLOUT_ININPUTSYNCCALL.									
+・And SendMessage is powerfull dispatch.	
