@@ -5,6 +5,7 @@ You have to install Codeer.Friendly.Stroe.Core.
 
 Download it.
 http://goo.gl/deV0J4
+==============
 
 You must learn Friendly first.  (No need Installer. NuGet Only.)
 
