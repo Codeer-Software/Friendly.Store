@@ -1,6 +1,12 @@
 Friendly.Store_α
 ==============
 
+Demo(Please watch at full screen.)
+
+https://www.youtube.com/watch?v=vV7o8xh8xoc
+
+==============
+
 You have to install Codeer.Friendly.Stroe.Core.
 
 Download it.
@@ -11,10 +17,6 @@ http://goo.gl/deV0J4
 You must learn Friendly first.  (No need Installer. NuGet Only.)
 
 http://www.english.codeer.co.jp/test-automation
-
-Demo(Please watch at full screen.)
-
-https://www.youtube.com/watch?v=vV7o8xh8xoc
 
 ==============
 Sample.
