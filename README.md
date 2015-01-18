@@ -10,6 +10,10 @@ You must learn Friendly first.
 
 http://www.english.codeer.co.jp/test-automation/friendly-fundamental  
 
+Demo
+
+https://www.youtube.com/watch?v=vV7o8xh8xoc
+
 ==============
 Sample.
 ```cs   
@@ -23,3 +27,6 @@ dynamic button = app.Type().Windows.UI.Xaml.Controls.Button();
 button.Content = "NewButton";
 main._grid.Children.Add(button);
 ```
+
+==============
+![new StoreAppFriend](ReadMeImages/Attach.png)
