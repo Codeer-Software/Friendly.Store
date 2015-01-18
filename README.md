@@ -10,7 +10,7 @@ You must learn Friendly first.  (No need Installer. NuGet Only.)
 
 http://www.english.codeer.co.jp/test-automation/friendly-fundamental  
 
-Demo
+Demo(Please watch at full screen.)
 
 https://www.youtube.com/watch?v=vV7o8xh8xoc
 
