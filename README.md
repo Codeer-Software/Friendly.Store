@@ -30,8 +30,8 @@ main._grid.Children.Add(button);
 
 ==============
 Abstract new StoreAppFriend(process);
-![new StoreAppFriend](ReadMeImages/Attach.png)
+![Attach](ReadMeImages/NewFriend.png)
 
 Abstract button.Content = "NewButton";
-![new StoreAppFriend](ReadMeImages/Execute.png)
+![Execute](ReadMeImages/Execute.png)
 
