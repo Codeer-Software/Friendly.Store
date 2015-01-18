@@ -12,6 +12,8 @@ You have to install Codeer.Friendly.Stroe.Core.
 Download it.
 http://goo.gl/deV0J4
 
+NuGet
+https://www.nuget.org/packages/Codeer.Friendly.Store/
 ==============
 
 You must learn Friendly first.  (No need Installer. NuGet Only.)
