@@ -36,6 +36,7 @@ button.Content = "NewButton";
 main._grid.Children.Add(button);
 ```
 
+Implementation
 ==============
 Abstract [new StoreAppFriend(process);]
 ![Attach](ReadMeImages/NewFriend_2.png)
