@@ -6,7 +6,7 @@ You have to install Codeer.Friendly.Stroe.Core.
 Download it.
 http://goo.gl/deV0J4
 
-You must learn Friendly first.  
+You must learn Friendly first.  (No need Installer. NuGet Only.)
 
 http://www.english.codeer.co.jp/test-automation/friendly-fundamental  
 
@@ -29,9 +29,9 @@ main._grid.Children.Add(button);
 ```
 
 ==============
-Abstract new StoreAppFriend(process);
+Abstract [new StoreAppFriend(process);]
 ![Attach](ReadMeImages/NewFriend.png)
 
-Abstract button.Content = "NewButton";
+Abstract [button.Content = "NewButton";]
 ![Execute](ReadMeImages/Execute.png)
 
