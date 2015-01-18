@@ -8,7 +8,7 @@ http://goo.gl/deV0J4
 
 You must learn Friendly first.  (No need Installer. NuGet Only.)
 
-http://www.english.codeer.co.jp/test-automation/friendly-fundamental  
+http://www.english.codeer.co.jp/test-automation
 
 Demo(Please watch at full screen.)
 
