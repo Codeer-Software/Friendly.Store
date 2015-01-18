@@ -10,46 +10,44 @@ namespace StoreAppTest
     [TestClass]
     public class SmokeTest
     {
-        StoreAppFriend _app;
-        Process _process;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            //アタッチ
-            string name = "App1";
-            _app = new StoreAppFriend(Process.GetProcessesByName(name)[0]);
-            _process = Process.GetProcessById(_app.ProcessId);
         }
 
         [TestCleanup]
         public void TestCleanup()
         {
-            _app.Dispose();
         }
 
         [TestMethod]
         public void Test()
         {
-            //①メイン画面取得
-            dynamic current = _app.Type().Windows.UI.Xaml.Window.Current;
+            string name = "App1";
+            var app = new StoreAppFriend(Process.GetProcessesByName(name)[0]);
+
+            //Get MainPage
+            dynamic current = app.Type().Windows.UI.Xaml.Window.Current;
             dynamic main = current.Content.Content;
 
-            //②メソッド直呼び
-            Assert.AreEqual("100", main.Func(100).ToString());
-            main.Func(100, new Async());
-
-            //③ボタン追加
-            dynamic button = _app.Type().Windows.UI.Xaml.Controls.Button();
-            button.Content = "新たなボタン";
-            main._grid.Children.Add(button);
-
+            //Get Grid
             dynamic grid = main.Content;
 
-            //④背景色を変える これまでWindows.UI.Colorsの入ったdllがロードされていたら成功
-            dynamic color = _app.Type().Windows.UI.Colors.Blue;
-            dynamic brush = _app.Type().Windows.UI.Xaml.Media.SolidColorBrush(color);
+            //Add Button
+            dynamic button = app.Type().Windows.UI.Xaml.Controls.Button();
+            button.Content = "New Button";
+            grid.Children.Add(button);
+
+            //Change Background
+            dynamic color = app.Type().Windows.UI.Colors.Blue;
+            dynamic brush = app.Type().Windows.UI.Xaml.Media.SolidColorBrush(color);
             grid.Background = brush;
+
+            //InvokeMethod
+            Assert.AreEqual("100", main.Func(100).ToString());
+
+            app.Dispose();
         }
     }
 }

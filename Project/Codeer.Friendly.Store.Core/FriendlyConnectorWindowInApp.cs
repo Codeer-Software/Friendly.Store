@@ -93,6 +93,11 @@ namespace Codeer.Friendly.Store.Core
                 protocolInfo = recieveData as ProtocolInfo;
             }
 
+
+            //★ここで、SequencialProtocolInfoに変換する。代入先の変数がわかっていること
+            //シーケンスコントロール
+                //ifとfor
+
             ReturnInfo ret = ExecuteCore(recieveData, executeWindowHandle, protocolInfo);
             if (ret.Exception != null)
             {
